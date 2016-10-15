@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<title>Motosierra</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<style>
+    body { margin: 0; overflow: hidden; background: radial-gradient(#333 40%, #000 100%);}
+	#texto {
+		position:absolute;
+		padding: 10px;
+		width: 100%;
+		text-align:center;
+	}
+</style>
+<script src="js/jquery-2.1.4.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="texto">Prueba</div>
+<div id="webgl"></div>
+<script src="threejs/three.min.js"></script>
+<script src="threejs/OrbitControls.js"></script> 
+<script>
+
+    var width  = window.innerWidth,
+        height = window.innerHeight,
+        mouse = new THREE.Vector3(),
+        count=0,
+        tapa = [],
+        objects = [];
+        
+    var scene = new THREE.Scene();
+    scene.add(new THREE.AmbientLight(0xeeeeee,0.2));
+    scene.background = new THREE.Color( 0xffffff );
+    scene.fog = new THREE.FogExp2( 0xffffff, 0.0015);
+    Light = new THREE.SpotLight(0xFFFFFF);
+    Light.position.set(300,-300,200);
+    Light2 = new THREE.SpotLight(0xFFFFFF,1);
+    Light2.position.set(-300,300,200);
+	scene.add(Light);
+	scene.add(Light2);
+    var camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.set(-50, -220, 60);
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(width, height);
+    document.getElementById('webgl').appendChild(renderer.domElement);
+    
+    var controls = new THREE.OrbitControls(camera); 
+    
+        
+    loader = new THREE.JSONLoader();
+    loader.load( 'filtro.json', addModel("filtro") );
+    loader.load( 'mango.json', addModel("mango") );
+    loader.load( 'motor_arranque.json', addModel("motor de arranque") );
+    loader.load( 'deposito_gasolina.json', addModel("deposito de gasolina") );
+    loader.load( 'empunhadura.json', addModel("agarre") );
+    loader.load( 'escape.json', addModel("silenciador escape") );
+    loader.load( 'freno_cadena.json', addModel("freno cadena") );
+    loader.load( 'espadin.json', addModel("espadin") );
+    loader.load( 'protege_espadin.json', addModel("funda espadin") );
+    loader.load( 'aceite.json', addModel("deposito aceite") );
+    loader.load( 'pieza_campana.json', addModel("pieza campana") );
+    loader.load( 'pletina.json', addModel("pletina") );
+    loader.load( 'campana.json', addModel("campana") );
+    loader.load( 'carcasa_freno_cadena.json', addModel("caracasa freno cadena") );
+    loader.load( 'palanca_encendido.json', addModel("palanca encendido") );
+    loader.load( 'filtro_goma.json', addModel("goma") );
+    loader.load( 'filtro_llave.json', addModel("llave") );
+    loader.load( 'valvula_compresion.json', addModel("valvula") );
+    loader.load( 'garra.json', addModel("garra") );
+    loader.load( 'tirador.json', addModel("tiraflector") );
+    loader.load( 'tornillos_motor_arranque.json', addModel("tornillos") );
+    loader.load( 'cadena.json', addModel("cadena") );
+    loader.load( 'silent_block.json', addModel("silent block") );
+    loader.load( 'tapa_silent_block.json', addModel("tapa silent block") );
+    loader.load( 'captor_cadena.json', addModel("captor cadena") );
+    loader.load( 'esparragos.json', addModel("esparragos") );
+    loader.load( 'cilindro.json', addModel("cilindro") );
+    loader.load( 'tapa_pinon_ataque.json', addModelTapa("hola") );
+       
+    function addModel( texto ) {
+	return function( geometry, materials ) {
+        var material = new THREE.MeshFaceMaterial( materials );
+        model = new THREE.Mesh( geometry, material );
+        model.geometry.computeVertexNormals();
+        model.scale.set(28,28,28);
+        model.position.set(0,0,0);
+	model.name = texto;
+        objects.push( model );
+        scene.add( model );
+	}
+    }
+        
+    function addModelTapa( texto ) {
+	return function( geometry, materials ) {
+        var material = new THREE.MeshFaceMaterial( materials );
+        model = new THREE.Mesh( geometry, material );
+        model.geometry.computeVertexNormals();
+        model.scale.set(28,28,28);
+        model.position.set(0,0,0);
+	model.name = texto;
+        tapa.push( model );
+        scene.add( model );
+	}
+    }
+
+    render();
+    
+    function render() {
+        controls.update();
+
+        requestAnimationFrame(render);
+        renderer.render(scene, camera);
+    }
+
+</script>
+</body>
+</html>
