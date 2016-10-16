@@ -16,7 +16,7 @@
         "wireframe":false,
         "colorEmissive":[0,0,0]
     },{
-        "colorDiffuse":[0.665098,0.219608,0],
+        "colorDiffuse":[0.64,0,0],
         "transparent":false,
         "opacity":1,
         "DbgName":"STIHL orange plasic.pegatina.encendido",

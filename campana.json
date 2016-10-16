@@ -11,11 +11,11 @@
         "materials":1
     },
     "materials":[{
-        "colorDiffuse":[0.045733,0.047305,0.048576],
+        "colorDiffuse":[0.245733,0.247305,0.248576],
         "wireframe":false,
         "blending":"NormalBlending",
         "visible":true,
-        "specularCoef":50,
+        "specularCoef":10,
         "DbgColor":15658734,
         "depthTest":true,
         "depthWrite":true,

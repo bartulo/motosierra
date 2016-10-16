@@ -6,7 +6,7 @@
         "specularCoef":49,
         "transparent":false,
         "wireframe":false,
-        "colorSpecular":[0,0,0],
+        "colorSpecular":[0.3,0.3,0.3],
         "visible":true,
         "DbgIndex":0,
         "opacity":1,

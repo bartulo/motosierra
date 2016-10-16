@@ -10,7 +10,7 @@
         "colorDiffuse":[0.020315,0.020315,0.020315],
         "DbgName":"STIHL black plastic",
         "DbgIndex":0,
-        "colorSpecular":[1,1,1],
+        "colorSpecular":[0.3,0.3,0.3],
         "colorEmissive":[0,0,0],
         "wireframe":false,
         "blending":"NormalBlending",

@@ -7,7 +7,7 @@
         "DbgIndex":0,
         "wireframe":false,
         "transparent":false,
-        "colorSpecular":[1,1,1],
+        "colorSpecular":[0.2,0.2,0.2],
         "colorDiffuse":[0,0,0],
         "opacity":1,
         "colorEmissive":[0,0,0],

@@ -16,12 +16,12 @@
         "wireframe":false,
         "colorEmissive":[0,0,0]
     },{
-        "colorDiffuse":[0.447681,0.447681,0.447681],
+        "colorDiffuse":[0,0,0],
         "transparent":false,
         "opacity":1,
         "DbgName":"STIHL black plastic",
         "blending":"NormalBlending",
-        "shading":"phong",
+        "shading":"Lambert",
         "visible":true,
         "DbgIndex":1,
         "depthTest":true,
