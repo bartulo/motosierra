@@ -50,38 +50,12 @@
     
         
     loader = new THREE.JSONLoader();
-    loader.load( 'filtro.json', addModel("filtro") );
-    loader.load( 'mango.json', addModel("mango") );
-    loader.load( 'motor_arranque.json', addModel("motor de arranque") );
-    loader.load( 'deposito_gasolina.json', addModel("deposito de gasolina") );
-    loader.load( 'empunhadura.json', addModel("agarre") );
-    loader.load( 'escape.json', addModel("silenciador escape") );
-    loader.load( 'freno_cadena.json', addModel("freno cadena") );
-    loader.load( 'espadin.json', addModel("espadin") );
-    loader.load( 'protege_espadin.json', addModel("funda espadin") );
-    loader.load( 'aceite.json', addModel("deposito aceite") );
-    loader.load( 'pieza_campana.json', addModel("pieza campana") );
-    loader.load( 'pletina.json', addModel("pletina") );
-    loader.load( 'campana.json', addModel("campana") );
-    loader.load( 'carcasa_freno_cadena.json', addModel("caracasa freno cadena") );
-    loader.load( 'palanca_encendido.json', addModel("palanca encendido") );
-    loader.load( 'filtro_goma.json', addModel("goma") );
-    loader.load( 'filtro_llave.json', addModel("llave") );
-    loader.load( 'valvula_compresion.json', addModel("valvula") );
-    loader.load( 'garra.json', addModel("garra") );
-    loader.load( 'tirador.json', addModel("tiraflector") );
-    loader.load( 'tornillos_motor_arranque.json', addModel("tornillos") );
-    loader.load( 'cadena.json', addModel("cadena") );
-    loader.load( 'silent_block.json', addModel("silent block") );
-    loader.load( 'tapa_silent_block.json', addModel("tapa silent block") );
-    loader.load( 'captor_cadena.json', addModel("captor cadena") );
-    loader.load( 'esparragos.json', addModel("esparragos") );
-    loader.load( 'cilindro.json', addModel("cilindro") );
-    loader.load( 'tuercas.json', addModel("tuercas") );
-    loader.load( 'pieza_central.json', addModel("pieza central") );
-    loader.load( 'tornilleria.json', addModel("tornillo") );
-    loader.load( 'eje_campana.json', addModel("eje de la campana") );
-    loader.load( 'tapa_pinon_ataque.json', addModelTapa("tapa") );
+    loader.load( 'json/blade.json', addModel("Blade") );
+    loader.load( 'json/oruga.json', addModel("Oruga") );
+    loader.load( 'json/hidraulico.json', addModel("Hidraulico") );
+    loader.load( 'json/ripper.json', addModel("Ripper") );
+    loader.load( 'json/ruedas.json', addModel("Ruedas") );
+    loader.load( 'json/planetario.json', addModel("Planetario") );
        
     function addModel( texto ) {
 	return function( geometry, materials ) {
