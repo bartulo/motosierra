@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-<title>Motosierra</title>
+<title>Bulldozer</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <style>
@@ -51,11 +51,18 @@
         
     loader = new THREE.JSONLoader();
     loader.load( 'json/blade.json', addModel("Blade") );
-    loader.load( 'json/oruga.json', addModel("Oruga") );
+    loader.load( 'json/oruga.json', addModelMirror("Oruga") );
     loader.load( 'json/hidraulico.json', addModel("Hidraulico") );
     loader.load( 'json/ripper.json', addModel("Ripper") );
     loader.load( 'json/ruedas.json', addModel("Ruedas") );
+    loader.load( 'json/bastidor.json', addModel("Bastidor") );
+    loader.load( 'json/extintor.json', addModel("Extintor") );
+    loader.load( 'json/rejilla.json', addModel("Rejilla") );
+    loader.load( 'json/elementos_bastidor.json', addModel("Elementos bastidor") );
     loader.load( 'json/planetario.json', addModel("Planetario") );
+    loader.load( 'json/cabina_delantera.json', addModel("Cabina delantera") );
+    loader.load( 'json/cabina.json', addModel("Cabina") );
+    loader.load( 'json/cabina_trasera.json', addModel("Cabina trasera") );
        
     function addModel( texto ) {
 	return function( geometry, materials ) {
@@ -70,7 +77,7 @@
 	}
     }
         
-    function addModelTapa( texto ) {
+    function addModelMirror( texto ) {
 	return function( geometry, materials ) {
         var material = new THREE.MeshFaceMaterial( materials );
         model = new THREE.Mesh( geometry, material );
@@ -82,6 +89,12 @@
         scene.add( model );
 	}
     }
+
+    $( document ).ready(function() { 
+      c = tapa[0].clone();
+      c.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
+      scene.add( c );
+    });
 
     render();
     
